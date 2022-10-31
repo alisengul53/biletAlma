@@ -1,0 +1,22 @@
+name: Take ticket
+
+on:
+  workflow_dispatch:
+    branches:
+      - main
+      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Take ticket
+    steps:
+      - name: Repository checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: 19
+          
+      - name: Run
+        run: mvn compile exec:java -Dexec.mainClass="org.example.Main"
