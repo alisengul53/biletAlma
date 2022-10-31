@@ -11,9 +11,9 @@ public class Main {
   public static void main(String[] args) {
     ApiCalls apiCalls = new ApiCalls();
     long tokenRefreshed = System.currentTimeMillis();
-    apiCalls.login("Harunsengul53@icloud.com", "5020403Hm");
+    apiCalls.login(System.getenv("username"), System.getenv("password"));
     boolean breakAllLoops = false;
-    Event bjkEvent = apiCalls.getEventByName("Trabzonspor A.Ş.");
+    Event bjkEvent = apiCalls.getEventByName(System.getenv("matchName"));
     EventDetailsDTO eventDetailsDTO = apiCalls.getEventDetailsById(bjkEvent);
     AvailableBlocksDTO availableBlocksDTO;
     AddToChartRequestDTO addToChartRequestDTO = new AddToChartRequestDTO();
