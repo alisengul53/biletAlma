@@ -2,8 +2,13 @@ name: Take ticket
 
 on:
   workflow_dispatch:
-    branches:
-      - main
+    inputs:
+      username:
+        required: true
+      password:
+        required: true
+      matchName:
+        required: true
       
 jobs:
   build:
@@ -20,3 +25,7 @@ jobs:
           
       - name: Run
         run: mvn compile exec:java -Dexec.mainClass="org.example.Main"
+        env:
+          username: ${{ github.event.inputs.username }} 
+          password: ${{ github.event.inputs.password }}
+          matchName: ${{ github.event.inputs.matchName }}
