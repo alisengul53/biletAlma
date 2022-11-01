@@ -52,7 +52,7 @@ public class Main {
                   addToChartRequestDTO.variantCount = variantCount;
                   apiCalls.addToChart(addToChartRequestDTO);
                   eventDetailsDTO.value.categories.remove(i);
-                  System.out.println(String.format("Eklenenecek bilet kategorisi: %s", availableBlocksDTO.valueList.get(k).name));
+                  System.out.println(String.format("Eklenenen bilet kategorisi: %s", availableBlocksDTO.valueList.get(k).name));
                   break;
                 }
                 else
