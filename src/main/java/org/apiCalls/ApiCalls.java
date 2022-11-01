@@ -154,7 +154,8 @@ public class ApiCalls {
       HttpResponse<String> response = httpClient.send(request,
         HttpResponse.BodyHandlers.ofString());
       AddToChartResponseDTO responseDto = mapper.readValue(response.body(), AddToChartResponseDTO.class);
-      System.out.println("Bilet sepete eklendi");
+      if(response.statusCode() == 200)
+        System.out.println("Bilet sepete eklendi");
       return responseDto;
     } catch (IOException | InterruptedException e) {
       e.printStackTrace();
