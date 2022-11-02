@@ -23,7 +23,9 @@ public class Main {
       {
         apiCalls.login("Harunsengul53@icloud.com", "5020403Hm");
         tokenRefreshed = System.currentTimeMillis();
+        System.out.println("Tekrar giriş yapıldı");
       }
+      int count = 0;
       while(true)
       {
         for(int i = 0; i < eventDetailsDTO.value.categories.size(); i++)
@@ -71,6 +73,9 @@ public class Main {
         }
         if(breakAllLoops)
           break;
+        count++;
+        if(count == 100)
+          System.out.println("Her kategori 100'er defa daha denendi denendi bilet eklenemedi. Devam ediliyor");
       }
       if(breakAllLoops)
         break;
