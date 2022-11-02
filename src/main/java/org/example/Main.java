@@ -16,6 +16,7 @@ public class Main {
     System.out.println("Giriş yapıldı");
     Event bjkEvent = apiCalls.getEventByName(System.getenv("matchName"));
     EventDetailsDTO eventDetailsDTO = apiCalls.getEventDetailsById(bjkEvent);
+    Collections.reverse(eventDetailsDTO.value.categories);
     AvailableBlocksDTO availableBlocksDTO;
     AddToChartRequestDTO addToChartRequestDTO = new AddToChartRequestDTO();
     boolean giris = false;
