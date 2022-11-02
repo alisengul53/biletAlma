@@ -12,16 +12,20 @@ public class Main {
     ApiCalls apiCalls = new ApiCalls();
     long tokenRefreshed = System.currentTimeMillis();
     apiCalls.login(System.getenv("username"), System.getenv("password"));
-    boolean breakAllLoops = false;
+    tokenRefreshed = System.currentTimeMillis();
+    System.out.println("Giriş yapıldı");
     Event bjkEvent = apiCalls.getEventByName(System.getenv("matchName"));
     EventDetailsDTO eventDetailsDTO = apiCalls.getEventDetailsById(bjkEvent);
     AvailableBlocksDTO availableBlocksDTO;
     AddToChartRequestDTO addToChartRequestDTO = new AddToChartRequestDTO();
+    boolean giris = false;
+    //apiCalls.login("Harunsengul53@icloud.com", "5020403Hm");
+    boolean breakAllLoops = false;
     while(true)
     {
-      if(System.currentTimeMillis() - tokenRefreshed > TimeUnit.MINUTES.toMillis(18))
+      if(giris)
       {
-        apiCalls.login("Harunsengul53@icloud.com", "5020403Hm");
+        apiCalls.login(System.getenv("username"), System.getenv("password"));
         tokenRefreshed = System.currentTimeMillis();
         System.out.println("Tekrar giriş yapıldı");
       }
@@ -75,7 +79,15 @@ public class Main {
           break;
         count++;
         if(count == 100)
+        {
           System.out.println("Her kategori 100'er defa daha denendi denendi bilet eklenemedi. Devam ediliyor");
+          count = 0;
+        }
+        if(System.currentTimeMillis() - tokenRefreshed > TimeUnit.MINUTES.toMillis(1))
+        {
+          giris = true;
+          break;
+        }
       }
       if(breakAllLoops)
         break;
