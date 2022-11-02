@@ -9,6 +9,8 @@ on:
         required: true
       matchName:
         required: true
+      desiredList:
+        required: false
       
 jobs:
   build:
@@ -29,3 +31,4 @@ jobs:
           username: ${{ github.event.inputs.username }} 
           password: ${{ github.event.inputs.password }}
           matchName: ${{ github.event.inputs.matchName }}
+          desiredList: ${{ github.event.inputs.desiredList }}
