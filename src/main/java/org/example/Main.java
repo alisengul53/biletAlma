@@ -83,7 +83,7 @@ public class Main {
           System.out.println("Her kategori 100'er defa daha denendi denendi bilet eklenemedi. Devam ediliyor");
           count = 0;
         }
-        if(System.currentTimeMillis() - tokenRefreshed > TimeUnit.MINUTES.toMillis(1))
+        if(System.currentTimeMillis() - tokenRefreshed > TimeUnit.MINUTES.toMillis(18))
         {
           giris = true;
           break;
