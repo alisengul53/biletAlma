@@ -16,7 +16,16 @@ public class Main {
     System.out.println("Giriş yapıldı");
     Event bjkEvent = apiCalls.getEventByName(System.getenv("matchName"));
     EventDetailsDTO eventDetailsDTO = apiCalls.getEventDetailsById(bjkEvent);
-    Collections.reverse(eventDetailsDTO.value.categories);
+    String str = System.getenv("desiredList");
+    List<String> items = Arrays.asList(str.split("\\s*,\\s*"));
+    List<EventDetail> desiredList = new ArrayList<>();
+    int listSize = eventDetailsDTO.value.categories.size();
+    for(int t = 0; t < listSize; t++)
+    {
+      if(items.contains(String.valueOf(t+1)))
+        desiredList.add(eventDetailsDTO.value.categories.get(t));
+    }
+    eventDetailsDTO.value.categories = desiredList;
     AvailableBlocksDTO availableBlocksDTO;
     AddToChartRequestDTO addToChartRequestDTO = new AddToChartRequestDTO();
     boolean giris = false;
