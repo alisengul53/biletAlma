@@ -31,6 +31,8 @@ public class Main {
       }
       eventDetailsDTO.value.categories = desiredList; 
     }
+    if(eventDetailsDTO.value.categories.isEmpty())
+      return;
     AvailableBlocksDTO availableBlocksDTO;
     AddToChartRequestDTO addToChartRequestDTO = new AddToChartRequestDTO();
     boolean giris = false;
