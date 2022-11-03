@@ -157,7 +157,7 @@ public class ApiCalls {
       if(response.statusCode() == 200)
       {
         System.out.println("Bilet sepete eklendi");
-        System.out.println("Response: " + response);
+        System.out.println("Response: " + response.body());
       }
       return responseDto;
     } catch (IOException | InterruptedException e) {
