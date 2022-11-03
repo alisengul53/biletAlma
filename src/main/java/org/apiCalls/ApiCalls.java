@@ -42,6 +42,11 @@ public class ApiCalls {
           accessToken = responseDto.value.access_token;
           return responseDto;
         }
+        if(accessToken == null || accessToken == "")
+        {
+          System.out.println("Login olamadı");
+          System.out.println(response.body());
+        }
       }
     } catch (IOException | InterruptedException e) {
       e.printStackTrace();
