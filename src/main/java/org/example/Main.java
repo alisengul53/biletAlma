@@ -71,9 +71,10 @@ public class Main {
                   addToChartVariant.seatCategoryVariantId = variantsList.value.variants.get(0).id;
                   variantCount.add(addToChartVariant);
                   addToChartRequestDTO.variantCount = variantCount;
-                  apiCalls.addToChart(addToChartRequestDTO);
+                  AddToChartResponseDTO test = apiCalls.addToChart(addToChartRequestDTO);
                   //eventDetailsDTO.value.categories.remove(i);
-                  System.out.println(String.format("Eklenenen bilet kategorisi: %s", availableBlocksDTO.valueList.get(k).name));
+                  if(!test.isError)
+                    System.out.println(String.format("Eklenenen bilet kategorisi: %s", availableBlocksDTO.valueList.get(k).name));
                   break;
                 }
                 else
