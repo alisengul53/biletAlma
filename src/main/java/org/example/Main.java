@@ -32,7 +32,10 @@ public class Main {
       eventDetailsDTO.value.categories = desiredList; 
     }
     if(eventDetailsDTO.value.categories.isEmpty())
+    {
+      System.out.println("Kategori listesi boş");
       return;
+    }
     AvailableBlocksDTO availableBlocksDTO;
     AddToChartRequestDTO addToChartRequestDTO = new AddToChartRequestDTO();
     boolean giris = false;
